@@ -1,0 +1,13 @@
+{
+  "name": "servant-halogen-pseudo-ssr",
+  "version": "1.0.0",
+  "repository": "git@github.com:PureFunctor/servant-halogen-pseudo-ssr.git",
+  "author": "PureFunctor <purefunctor@gmail.com>",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "parcel": "1.12.3"
+  },
+  "scripts": {
+      "build": "parcel build index.html -d static --public-url static --no-source-maps"
+  }
+}
