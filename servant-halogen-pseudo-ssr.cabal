@@ -19,9 +19,13 @@ extra-source-files:  CHANGELOG.md
 executable servant-halogen-pseudo-ssr
   main-is:             Main.hs
   -- other-extensions:
-  build-depends:       base ^>=4.14.1.0, 
+  build-depends:       base ^>=4.14.1.0,
+                       bytestring,
+                       http-media,
                        servant, 
                        servant-server,
+                       req,
+                       mtl,
                        tagsoup,
                        wai,
                        wai-middleware-static,
