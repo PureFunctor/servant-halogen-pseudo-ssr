@@ -64,10 +64,10 @@ site = do
     Req.runReq Req.defaultHttpConfig $
       Req.responseBody <$> Req.req
         Req.GET
-        (Req.http "localhost" Req./: "static" Req./: "index.html")
+        (Req.http "site-frontend" Req./: "static" Req./: "index.html")
         Req.NoReqBody
         Req.lbsResponse
-        (Req.port 3000)
+        (Req.port 4000)
   return $
     RawHTML $
       TagSoup.renderTags $

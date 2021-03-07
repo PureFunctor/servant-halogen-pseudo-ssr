@@ -1,0 +1,39 @@
+version: "3.7"
+
+networks:
+  site-network:
+    driver: bridge
+
+services:
+
+  site-backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    expose:
+      - 3000
+    volumes:
+      - ./app:/app
+      - /etc/ssl:/etc/ssl:ro
+    networks:
+      - site-network
+
+  site-frontend:
+    hostname: nginx
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
+    expose:
+      - 3000
+    depends_on:
+      - site-backend
+    volumes:
+      - ./app/ssl:/etc/ssl:ro
+    networks:
+      - site-network
+
+volumes:
+  app:
